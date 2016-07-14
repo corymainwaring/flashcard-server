@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+	<meta charset="UTF-8">
+	<title>Flashcards</title>
+	<style type="text/css">
+		#login {
+			background-color: #e0efe0;
+		}
+		#login a {
+			margin: 0;
+			padding: 3px 10px;
+			display: block;
+		}
+		#passphrase {
+			font-family: "DejaVu Sans", "Trebuchet MS", sans-serif;
+			font-size: 16px;
+			margin: 15px 25px;
+			padding: 5px;
+			width: auto;
+			height: auto;
+		}
+		label {
+			font-size: 16px;
+		}
+		.text-header {
+			font-size: 120%;
+			font-weight: bold;
+			text-decoration: underline;
+		}
+		.error {
+			color: #f66;
+			font-weight: bold;
+		}
+		/* Header-Styles */
+	</style>
+	<link rel="stylesheet" tyoe="text/css" href="/static/css/style.css" />
+</head>
+<body>
+	<div id="wrap">
+		<div id="hdr" class="hf">
+			<span id="hdr-center" class="hf-center">Mainwaring's Flashcards</span>
+		</div>
+		<div id="front">
+			<p class="text-header">Registration</p>
+			{{if .}}<p class="error">{{.}}</p>{{end}}
+			<form name="register" action="./register" method="POST">
+				<label for="passphrase">Name:</label><input type="input" maxlength="256" name="passphrase" id="passphrase" /><br />
+				<input type="submit" name="submit" value="Register" />
+			</form>
+		</div>
+		<div id="login" class="special-msg">
+			<a href="/login">Already Registered? Click Here.</a>
+		</div>
+		<div id="push"></div>
+	</div>
+	<!-- Footer -->
+	<div id="ftr" class="hf">
+		<span id="ftr-right" class="hf-right">&copy; 2013</span>
+	</div>
+</body>
+</html>

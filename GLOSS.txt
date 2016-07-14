@@ -1,0 +1,51 @@
+simplified;traditional;pinyin;english;hsk
+精妙;精妙;jīng miào;exquisite/fine and delicate (usu. of works of art);HSK!
+层面;層面;céng miàn;plane/level;HSK!
+啥;啥;shá;dialectal equivalent of 什麼|什么[shen2 me5];HSK6
+真空;真空;zhēn kōng;vacuum;HSK!
+撑;撐;chēng;to support/to prop up/to push or move with a pole/to maintain/to open or unfurl/to fill to bursting point/brace/stay/support;HSK6
+煮;煮;zhǔ;to cook/to boil;HSK5
+煮;煑;zhǔ;variant of 煮[zhu3];HSK5
+生石灰;生石灰;shēng shí huī;calcium oxide CaO/quicklime;HSK!
+沸腾;沸騰;fèi téng;boiling/ebullition;HSK6
+巧;巧;qiǎo;opportunely/coincidentally/as it happens/skillful/timely;HSK4
+封闭;封閉;fēng bì;to seal/to close/to confine/to seal off/to close down/sealed/confined/closed/unreceptive;HSK6
+达成;達成;dá chéng;to reach (an agreement)/to accomplish;HSK6
+壮族;壯族;zhuàng zú;Zhuang ethnic group of Guangxi, the PRC's second most numerous ethnic group/Zhuang: Bouxcuengh;HSK!
+党委;黨委;dǎng wěi;Party committee;HSK!
+葆;葆;bǎo;dense foliage/to cover;HSK!
+泛;泛;fàn;to float/to be suffused with/general/extensive/non-specific/flood/pan- (prefix);HSK5
+概念;概念;gài niàn;concept/idea/CL:個|个[ge4];HSK5
+延伸;延伸;yán shēn;to extend/to spread;HSK6
+文莱;文萊;wén lái;Brunei Darussalam, independent sultanate in northwest Borneo;HSK!
+构想;構想;gòu xiǎng;to conceive/concept;HSK!
+辖;轄;xiá;to govern/to control/having jurisdiction over/linchpin of a wheel (archaic)/noise of a barrow;HSK6
+首府;首府;shǒu fǔ;capital city of an autonomous region;HSK!
+推进;推進;tuī jìn;to impel/to carry forward/to push on/to advance/to drive forward;HSK!
+地缘;地緣;dì yuán;regional;HSK!
+枢纽;樞紐;shū niǔ;hub (e.g. of traffic network)/hinge/pivot/fulcrum;HSK!
+遭到;遭到;zāo dào;to suffer/to meet with (sth unfortunate);HSK!
+血腥;血腥;xuè xīng;reeking of blood/bloody (events);HSK!
+镇压;鎮壓;zhèn yā;suppression/repression/to suppress/to put down/to quell;HSK6
+严密;嚴密;yán mì;strict/tight (organization, surveillance etc);HSK6
+平时;平時;píng shí;ordinarily/in normal times/in peacetime;HSK4
+升旗;升旗;shēng qí;to raise a flag/to hoist a flag;HSK!
+游览;遊覽;yóu lǎn;to go sight-seeing/to tour/to visit/CL:次[ci4];HSK5
+兜售;兜售;dōu shòu;to hawk/to peddle;HSK!
+纪念品;紀念品;jì niàn pǐn;souvenir;HSK!
+角落;角落;jiǎo luò;nook/corner;HSK6
+密切注视;密切注視;mì qiè zhù shì;to watch closely;HSK!
+逗留;逗留;dòu liú;to stay at/to stop over;HSK!
+行人;行人;xíng rén;pedestrian/traveler on foot/passer-by/official responsible for arranging audiences with the emperor;HSK5
+旗帜;旗幟;qí zhì;ensign/flag;HSK6
+标语;標語;biāo yǔ;"written slogan/placard/CL:幅[fu2],張|张[zhang1],條|条[tiao2]";HSK!
+撕毁;撕毀;sī huǐ;to tear up/to rip up/too shred;HSK!
+镇压;鎮壓;zhèn yā;suppression/repression/to suppress/to put down/to quell;HSK6
+严格;嚴格;yán gé;strict/stringent/tight/rigorous;HSK4
+禁止;禁止;jìn zhǐ;to prohibit/to forbid/to ban;HSK4
+任何;任何;rèn hé;any/whatever/whichever/whatsoever;HSK4
+示威;示威;shì wēi;to demonstrate (as a protest)/a demonstration/a military show of force;HSK6
+牵连;牽連;qiān lián;to implicate/implicated;HSK!
+拘留;拘留;jū liú;to detain (a prisoner)/to keep sb in custody;HSK6
+安排;安排;ān pái;to arrange/to plan/to set up/arrangements/plans;HSK4
+盘问;盤問;pán wèn;to interrogate/to cross-examine/to inquire;HSK!

@@ -1,0 +1,213 @@
+{{define "header"}}
+<div id="hdr" class="hf">
+	<span id="hdr-left" class="hf-left"><p class="hf-text">Logged in as:</p><a class="broken" href="/profile">{{.}}</a></span>
+	<span id="hdr-right" class="hf-right">
+		<a href="/pref">Preferences</a>
+		<p class="hf-text">|</p>
+		<a class="broken" href="/stats">Stats</a>
+		<p class="hf-text">|</p>
+		<a class="broken" href="/lists">Lists</a>
+		<p class="hf-text">|</p>
+		<a href="/study">Study</a>
+	</span>
+	<span id="hdr-center" class="hf-center">Mainwaring's Flashcards</span>
+</div>
+{{end}}
+{{define "footer"}}
+	<div id="ftr" class="hf">
+		<span id="ftr-left" class="hf-left"><a href="logout">Logout</a></span>
+		<span id="ftr-right" class="hf-right"><p class="hf-text">&copy; 2013</p></span>
+	</div>
+{{end}}
+{{define "written"}}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+	<meta charset="UTF-8">
+	<title>Flashcards</title>
+	<link rel="stylesheet" tyoe="text/css" href="/static/css/style.css" />
+	<script src="/static/js/jquery.js"></script>
+	<style type="text/css">
+	#showAnswer {
+		visibility: hidden;
+		font-size: 28px;
+	}
+	#report {
+		visibility: hidden;
+	}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#show").click(function(){
+				if ($("#check").val() != "Next") {
+					$("#check").val("Next");
+					$("#showAnswer").css("visibility", "visible");
+					$("#report").css("visibility", "visible");
+					$("#report").css("background-color", "#ffe");
+					$("#report").html("<p>Answer Shown.</p>");
+				}
+			})
+
+			$("form").submit(function(){
+				if ($("#check").val() == "Next") {
+					return true;
+				} else { 
+					if ($("#guess").val() == $("#answer1").val() || $("#guess").val() == $("#answer2").val()) {
+						$("#correct").val("true");
+						$("#check").val("Next");
+						$("#guess").prop('disabled', true);
+						$("#showAnswer").prop("disabled", true);
+						$("#report").css("visibility", "visible");
+						$("#report").css("background-color", "#efe");
+						$("#report").html("<p>Correct!</p>");
+						return false;
+					} else {
+						$("#check").val("Try Again");
+						$("#report").css("visibility", "visible");
+						$("#report").css("background-color", "#fee");
+						$("#report").html("<p>Incorrect.</p>");
+						return false;
+					}
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="wrap">
+		{{template "header" .Usr.Passphrase}}
+		<div id="userInfo">
+			<span class="correct">Correct: {{.Card.Correct}}</span>
+			<span class="wrong">Wrong: {{.Card.Wrong}}</span>
+		</div>
+		<div id="front">{{with .Card.Master}}
+			<p class="pinyin">{{.Pinyin}}</p>
+			{{range .English}}<p class="english">{{.}}</p>
+			{{end}}
+			<form name="results" action="/study" method="POST">
+				<label for="guess">Guess:</label><input type="input" name="guess" id="guess" />
+				<input type="hidden" name="simplified" value="{{.Simplified}}" id="answer1" />
+				<input type="hidden" name="traditional" value="{{.Traditional}}" id="answer2" />
+				<input type="hidden" name="correct" value="false" id="correct" />
+				<input type="button" name="show" value="Show Answer" id="show" />
+				<input type="submit" name="check" value="Check Answer" id="check" />
+			</form>
+			<div id="showAnswer">
+				<p>{{.Simplified}}</p>
+				<p>{{.Traditional}}</p>
+			</div>
+		</div>{{end}}
+		<div id="report" class="special-msg"></div>
+		<div id="push"></div>
+	</div>
+	{{template "footer"}}
+</body>
+</html>
+{{end}}
+{{define "flashcard"}}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+	<meta charset="UTF-8">
+	<title>Flashcards</title>
+	<link rel="stylesheet" tyoe="text/css" href="/static/css/style.css" />
+	<script src="/static/js/jquery.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".showBack").click(function(){
+				if ($("#back").css("visibility") == "hidden") {
+					$(".showBack").val("Hide")
+					$("#back").css("visibility", "visible");
+				} else {
+					$(".showBack").val("Show")
+					$("#back").css("visibility", "hidden");
+				}
+			})
+		});
+	</script>
+</head>
+<body>
+	<div id="wrap">
+		{{template "header" .Usr.Passphrase}}
+		<div id="userInfo">
+			<span class="correct">Correct: {{.Card.Correct}}</span>
+			<span class="wrong">Wrong: {{.Card.Wrong}}</span>
+		</div>
+		<div id="front">{{with .Card.Master}}
+			<p class="chinese" id="traditional">{{.Traditional}}</p>
+			<p class="chinese" id="simplified">{{.Simplified}}</p>
+			<div id="back" style="visibility:hidden;">
+				<p id="pinyin">{{.Pinyin}}</p>
+				{{range .English}}<p class="english">{{.}}</p>
+				{{end}}
+				<input type="input" placeholder="Scratchpad" />
+			</div>{{end}}
+			<input type="button" class="showBack" value="Show" style="display:absolute;" />
+		</div>
+		<div id="report">
+			<form name="results" action="/study" method="POST">
+				<input type="submit" name="submit" value="Correct" />
+				<input type="submit" name="submit" value="Incorrect" />
+			</form>
+		</div>
+	</div>
+	{{template "footer"}}
+</body>
+</html>
+{{end}}
+{{define "preferences"}}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+	<meta charset="UTF-8">
+	<title>Flashcards</title>
+	<link rel="stylesheet" tyoe="text/css" href="/static/css/style.css" />
+</head>
+<body>
+	<div id="wrap">
+		{{template "header" .Username}}
+		<div id="front">
+			<form name="results" action="/pref" method="POST">
+			{{range $null, $pref := .Preferences}}<div class="pref-list">{{$type := .Type}}{{$name := .Name}}
+				<span class="pref-title">{{.Title}}</span>
+				{{range $i, $v := .Values}}<label for="{{$name}}{{$v.Name}}">{{$v.Display}}</label><input type="{{$type}}" name="{{$name}}" id="{{$name}}{{$v.Name}}" value="{{$v.Name}}" {{if $v.Active}}checked="true"{{end}}/>{{end}}
+			</div>
+			{{end}}
+		</div>
+		<div id="report">
+				<input type="submit" name="submit" value="Save Preferences" />
+			</form>
+		</div>
+	</div>
+	{{template "footer"}}
+</body>
+</html>
+{{end}}
+{{define "add_personal"}}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+	<meta charset="UTF-8">
+	<title>Flashcards</title>
+	<link rel="stylesheet" tyoe="text/css" href="/static/css/style.css" />
+</head>
+<body>
+	<div id="wrap">
+		{{template "header" .Username}}
+		<div id="front">
+			<form name="results" method="POST">
+				<textarea name="input" cols="40" rows="20" autofocus required></textarea>
+		</div>
+		<div id="report">
+				<input type="submit" name="submit" value="Add Flashcards" />
+			</form>
+		</div>
+	</div>
+	{{template "footer"}}
+</body>
+</html>
+{{end}}

@@ -1,0 +1,87 @@
+
+{{define "written"}}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+	<meta charset="UTF-8">
+	<title>Flashcard</title>
+	<link rel="stylesheet" tyoe="text/css" href="/static/css/style.css" />
+	<script src="/static/js/jquery.js"></script>
+	<style type="text/css">
+	#showAnswer {
+		visibility: hidden;
+		font-size: 28px;
+	}
+	#report {
+		visibility: hidden;
+	}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#show").click(function(){
+				if ($("#check").val() != "Next") {
+					$("#check").val("Next");
+					$("#showAnswer").css("visibility", "visible");
+					$("#report").css("visibility", "visible");
+					$("#report").css("background-color", "#ffe");
+					$("#report").html("<p>Answer Shown.</p>");
+				}
+			})
+
+			$("form").submit(function(){
+				if ($("#check").val() == "Next") {
+					return true;
+				} else { 
+					if ($("#guess").val() == $("#answer").val() || $("#guess").val() == $("#answer2").val()) {
+						$("#correct").val("true");
+						$("#check").val("Next");
+						$("#guess").prop('disabled', true);
+						$("#showAnswer").prop("disabled", true);
+						$("#report").css("visibility", "visible");
+						$("#report").css("background-color", "#efe");
+						$("#report").html("<p>Correct!</p>");
+						return false;
+					} else {
+						$("#check").val("Try Again");
+						$("#report").css("visibility", "visible");
+						$("#report").css("background-color", "#fee");
+						$("#report").html("<p>Incorrect.</p>");
+						return false;
+					}
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="wrap">
+		{{template "header"}}
+		<div id="userInfo">
+			<span id="correct">Correct: {{.Card.Correct}}</span>
+			<span id="wrong">Wrong: {{.Card.Wrong}}</span>
+		</div>
+		<div id="front">{{with .Card.Master}}
+			<p class="pinyin">{{.Pinyin}}</p>
+			{{range .English}}<p class="english">{{.}}</p>
+			{{end}}
+			<form name="results" action="./test.html" method="POST">
+				<label for="guess">Guess:</label><input type="input" name="guess" id="guess" />
+				<input type="hidden" name="simplified" value="{{.Simplified}}" id="answer1" />
+				<input type="hidden" name="traditional" value="{{.Traditional}}" id="answer2" />
+				<input type="hidden" name="correct" value="false" id="correct" />
+				<input type="button" name="show" value="Show Answer" id="show" />
+				<input type="submit" name="check" value="Check Answer" id="check" />
+			</form>
+			<div id="showAnswer">
+				<p>{{.Simplified}}</p>
+				<p>{{.Traditional}}</p>
+			</div>
+		</div>{{end}}
+		<div id="report" class="special-msg"></div>
+		<div id="push"></div>
+	</div>
+	{{template "footer"}}
+</body>
+</html>
+{{end}}

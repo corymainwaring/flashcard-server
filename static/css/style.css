@@ -1,0 +1,141 @@
+* {
+	font-family: "DejaVu Sans", "Trebuchet MS", "SimHei Regular", "SimSun Regular", "SimSun-ExtB Regular", sans-serif;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: #ccc;
+	font-size: 13px;
+}
+
+
+.special-msg {
+	border: 1px solid #333;
+	width: 400px;
+	margin: 0px auto;
+	padding: 3px 10px;
+	border-top: none;
+	font-size: 16px;
+	background-color: #efefef;
+}
+
+/* Flashcard */
+#userInfo span {
+	display: inline;
+	padding: 5px;
+	margin: 5px 1px 5px 1px;
+	border: 1px solid #000000;
+}
+#user {
+	background-color: #cef;
+}
+.correct {
+	background-color: #efe;
+}
+.wrong {
+	background-color: #fee;
+}
+.chinese {
+	font-size: 35px;
+}
+#front {
+	border: 1px solid #333;
+	width: 400px;
+	margin: 0 auto;
+	background-color: #efefef;
+	padding: 15px 10px;
+	font-size: 16px;
+}
+#back {
+	font-size: 16px;
+	margin: 10px 5px;
+}
+.english {
+	padding: 5px;
+	border-bottom: 1px solid #eee;
+}
+.pinyin {
+	padding: 15px;
+	font-weight: bold;
+}
+input {
+	font-family: "DejaVu Sans", "Trebuchet MS", sans-serif;
+	font-size: 16px;
+	margin: 10px 15px;
+}
+input[type=input] {
+	padding: 5px;
+	width: 200px;
+	text-align: left;
+}
+input[type=button], input[type=submit] {
+	padding: 5px;
+	width: 140px;
+	height: 50px;
+}
+
+a {
+	font-weight: bold;
+	color: #39f;
+}
+a:hover {
+	color: #36f;
+}
+.broken {
+	color: #d66;
+}
+.broken:hover {
+	color: #f33;
+}
+
+/* Header/Footer */
+#hdr {
+	margin-bottom: 15px;
+	border-bottom: 1px solid #111;
+}
+#ftr {
+	border-top: 1px solid #111;
+	font-weight: bold;
+	height: 18px;
+}
+.hf {
+	padding: 6px;
+	background-color: #eee;
+	min-width: 500px;
+	text-align: center;
+}
+.hf-left {
+	margin-top: 3px;
+	float: left;
+}
+.hf-center {
+	display: block;
+	margin: 0 auto;
+	width: 400px;
+	font-size: 120%;
+	font-weight: bold;
+}
+.hf-right {
+	margin-top: 3px;
+	float: right;
+}
+.hf-text {
+	display: inline;
+	padding: 0 3px;
+}
+
+/* Sticky Footer */
+html, body {
+	height: 100%;
+}
+#wrap {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -31px;
+}
+#push {
+	height: 23px;
+}

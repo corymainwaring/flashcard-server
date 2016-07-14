@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		body {
+			font-family: "DejaVu Sans", "Trebuchet MS", "SimHei Regular", "SimSun Regular", "SimSun-ExtB Regular", sans-serif;
+			font-size: 13px;
+			background-color: #ccc;
+			margin: 0;
+			padding: 0;
+		}
+		/* Header Styles */
+		a {
+			font-weight: bold;
+			color: #39f;
+		}
+		a:hover {
+			color: #36f;
+		}
+		.broken {
+			color: #d66;
+		}
+		.broken:hover {
+			color: #f33;
+		}
+		.hf {
+			padding: 0.5%;
+			background-color: #eee;
+			width: 99%;
+			min-width: 500px;
+			text-align: center;
+		}
+		.hf-left {
+			margin-top: 0.15%;
+			float: left;
+		}
+		.hf-center {
+			display: block;
+			margin: 0 auto;
+			width: 150px;
+			font-size: 120%;
+			font-weight: bold;
+		}
+		.hf-right {
+			margin-top: 0.15%;
+			float: right;
+		}
+		#hdr {
+			margin-bottom: 15px;
+			border-bottom: 1px solid #111;
+		}
+		#ftr {
+			position: absolute;
+			bottom: 0;
+			border-top: 1px solid #111;
+			font-weight: bold;
+		}
+		/* Header-Styles */
+		#content {
+			margin: 20px auto;
+			width: 90%;
+			min-width: 525px;
+			max-width: 800px;
+			padding: 10px;
+			background: #cef;
+			border: 1px solid #123;
+		}
+		#content p:first-letter {
+			font-size: 120%;
+			font-weight: bold;
+		}
+	</style>
+	<title>Flashdaily - Automagical Language Helper</title>
+</head>
+<body>
+	<!-- Header -->
+	<div id="hdr" class="hf">
+		<span id="hdr-left" class="hf-left">Logged in as: <a class="broken" href="/profile">{{User}}</a></span>
+		<span id="hdr-right" class="hf-right"><a class="broken" href="/profile">Profile</a> | <a class="broken" href="/stats">Stats</a> | <a class="broken" href="/lists">Lists</a> | <a href="/study">Study</a></span>
+		<span id="hdr-center" class="hf-center">FlashDaily</span>
+	</div>
+	<!-- Content -->
+	<div id="content">
+		<p>Welcome to FlashDaily, the world's only source for free, automatically calculated vocabulary learning. This site is aimed at the advanced language learner, hoping to enhance their language recognition ability.</p>
+		<p>At the moment FlashDaily only supports the learning of Chinese words.</p>
+	</div>
+	<!-- Footer -->
+	<div id="ftr" class="hf">
+		<span id="ftr-right" class="hf-right">&copy; 2013</span>
+	</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+	<meta charset="UTF-8">
+	<title>Flashcards</title>
+	<link rel="stylesheet" tyoe="text/css" href="/static/css/style.css" />
+	<script src="/static/js/jquery.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".showBack").click(function(){
+				if ($("#back").css("visibility") == "hidden") {
+					$(".showBack").val("Hide")
+					$("#back").css("visibility", "visible");
+				} else {
+					$(".showBack").val("Show")
+					$("#back").css("visibility", "hidden");
+				}
+			})
+		});
+	</script>
+</head>
+<body>
+	<div id="wrap">
+		{{template "header"}}
+		<div id="userInfo">
+			<span id="correct">Correct: {{.Card.Correct}}</span>
+			<span id="wrong">Wrong: {{.Card.Wrong}}</span>
+		</div>
+		<div id="front">{{with .Card.Master}}
+			<p class="chinese" id="traditional">{{.Traditional}}</p>
+			<p class="chinese" id="simplified">{{.Simplified}}</p>
+			<div id="back" style="visibility:hidden;">
+				<p id="pinyin">{{.Pinyin}}</p>
+				{{range .English}}<p class="english">{{.}}</p>
+				{{end}}
+			</div>{{end}}
+			<input type="button" class="showBack" value="Show" style="display:absolute;" />
+		</div>
+		<div id="report">
+			<form name="results" action="/study" method="POST">
+				<input type="submit" name="submit" value="Correct" />
+				<input type="submit" name="submit" value="Incorrect" />
+			</form>
+		</div>
+	</div>
+	{{template "footer"}}
+</body>
+</html>

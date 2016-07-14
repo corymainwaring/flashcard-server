@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+	<meta charset="UTF-8">
+	<title>Flashcards</title>
+	<style type="text/css">
+		body {
+			font-family: "DejaVu Sans", "Trebuchet MS", "SimHei Regular", "SimSun Regular", "SimSun-ExtB Regular", sans-serif;
+			font-size: 13px;
+			background-color: #ccc;
+			text-align: center;
+			margin: 0;
+			padding: 0;
+		}
+		input {
+		}
+		#userInfo span {
+			display: inline;
+			padding: 5px;
+			margin: 5px 1px 5px 1px;
+			border: 1px solid #000000;
+		}
+		#user {
+			background-color: #cef;
+		}
+		#correct {
+			background-color: #efe;
+		}
+		#wrong {
+			background-color: #fee;
+		}
+		.chinese {
+			font-size: 35px;
+		}
+		#front {
+			border: 1px solid #333;
+			width: 400px;
+			margin: 0px auto;
+			background-color: #efefef;
+			padding: 3px 10px;
+		}
+		#back {
+			font-size: 16px;
+		}
+		.english {
+			margin: 3px;
+			border-bottom: 1px solid #eee;
+		}
+		input {
+			font-family: "DejaVu Sans", "Trebuchet MS", sans-serif;
+			font-size: 16px;
+			margin: 15px 25px;
+			width: 180px;
+			height: 60px;
+		}
+		/* Header Styles */
+		a {
+			font-weight: bold;
+			color: #39f;
+		}
+		a:hover {
+			color: #36f;
+		}
+		.broken {
+			color: #d66;
+		}
+		.broken:hover {
+			color: #f33;
+		}
+		.hf {
+			padding: 0.5%;
+			background-color: #eee;
+			width: 99%;
+			min-width: 500px;
+			text-align: center;
+		}
+		.hf-left {
+			margin-top: 0.15%;
+			float: left;
+		}
+		.hf-center {
+			display: block;
+			margin: 0 auto;
+			width: 150px;
+			font-size: 120%;
+			font-weight: bold;
+		}
+		.hf-right {
+			margin-top: 0.15%;
+			float: right;
+		}
+		#hdr {
+			margin-bottom: 15px;
+			border-bottom: 1px solid #111;
+		}
+		#ftr {
+			position: absolute;
+			bottom: 0;
+			border-top: 1px solid #111;
+			font-weight: bold;
+		}
+		/* Header-Styles */
+	</style>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".showBack").click(function(){
+				if ($("#back").css("visibility") == "hidden") {
+					$(".showBack").val("Hide")
+					$("#back").css("visibility", "visible");
+				} else {
+					$(".showBack").val("Show")
+					$("#back").css("visibility", "hidden");
+				}
+			})
+		});
+	</script>
+</head>
+<body>
+	<div id="hdr" class="hf">
+		<span id="hdr-left" class="hf-left">Logged in as: <a class="broken" href="/profile">{User}</a></span>
+		<span id="hdr-right" class="hf-right"><a class="broken" href="/profile">Profile</a> | <a class="broken" href="/stats">Stats</a> | <a class="broken" href="/lists">Lists</a> | <a href="/study">Study</a></span>
+		<span id="hdr-center" class="hf-center">FlashDaily</span>
+	</div>
+	<div id="userInfo">
+		<span id="correct">Correct: {{.Correct}}</span>
+		<span id="wrong">Wrong: {{.Wrong}}</span>
+	</div>
+	<div id="front">
+		<p class="chinese" id="traditional">{{.Traditional}}</p>
+		<p class="chinese" id="simplified">{{.Simplified}}</p>
+		<div id="back" style="visibility:hidden;">
+			<p id="pinyin">{{.Pinyin}}</p>
+			{{range .English}}<p class="english">{{.}}</p>
+			{{end}}
+		</div>
+		<input type="button" class="showBack" value="Show" style="display:absolute;" />
+	</div>
+	<div id="report">
+		<form name="results" action="./study" method="POST">
+			<input type="submit" name="submit" value="Correct" />
+			<input type="submit" name="submit" value="Incorrect" />
+		</form>
+	<!-- Footer -->
+	<div id="ftr" class="hf">
+		<span id="ftr-right" class="hf-right">&copy; 2013</span>
+	</div>
+</body>
+</html>
